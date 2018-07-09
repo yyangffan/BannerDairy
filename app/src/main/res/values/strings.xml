@@ -1,0 +1,122 @@
+<resources>
+    <string name="ceshi">
+        这么多文字当然是测试文字多的时候的布局了。
+        这么多文字当然是测试文字多的时候的布局了。
+    </string>
+
+    <string name="app_name">瑞吉零售帮</string>
+    <string name="please_input_password">请输入密码</string>
+    <string name="please_input_username">请输入账号</string>
+    <string name="login">登录</string>
+    <string name="cancel">取消</string>
+    <string name="forgot_password">忘记密码?</string>
+    <string name="input_sign_phone_num">请输入注册的手机号</string>
+    <string name="please_confirm_password">请确认您的密码</string>
+    <string name="please_enter_inviter_phone">请输入邀请人手机号</string>
+    <string name="please_enter_code">请输入验证码</string>
+    <string name="get_code">获取验证码</string>
+    <string name="to_sign">去注册</string>
+    <string name="sign">注册</string>
+    <string name="ok">确认</string>
+    <string name="home_page">首页</string>
+    <string name="managePage">人员管理</string>
+    <string name="order_page">我的订单</string>
+    <string name="mine_page">我的</string>
+    <string name="order_management">订单管理</string>
+    <string name="person_manage">人员管理</string>
+    <string name="common_problem">常见问题</string>
+    <string name="spread_knowledge">传播知识</string>
+    <string name="all_goods">全部商品</string>
+    <string name="customer_service">客服</string>
+    <string name="seller_show">买家秀</string>
+    <string name="login_or_sign">登录</string>
+    <string name="account_balance">账户余额</string>
+    <string name="cash_withdrawal_balance">提现金额</string>
+    <string name="personal_data">个人资料</string>
+    <string name="mine_message">我的消息</string>
+    <string name="mine_scoring">我的积分</string>
+    <string name="mine_collect">我的收藏</string>
+    <string name="mine_stock">我的库存</string>
+    <string name="kucunliushui">库存流水</string>
+
+    <string name="mine_invitation">邀请代理</string>
+    <string name="wallet">钱包</string>
+    <string name="about_us">关于我们</string>
+    <string name="modify_head">修改头像</string>
+    <string name="please_enter_your_real_name">请输入真实姓名</string>
+    <string name="please_input_your_id_number">请输入您的身份证号</string>
+    <string name="ok_space">确 定</string>
+    <string name="my_team">我的团队</string>
+    <string name="team_achieve">团队业绩</string>
+    <string name="my_invitation">我的邀请</string>
+    <string name="invitation_agent">邀请代理</string>
+    <string name="main_title">旗帜奶粉</string>
+    <string name="main_titlet">瑞吉零售帮</string>
+    <string name="wl_xiangqing">物流详情</string>
+    <string name="main_kefu">客服</string>
+    <string name="fash_title">买家秀</string>
+    <string name="mine_title"> </string>
+    <string name="order_title">我的订单</string>
+    <string name="forget_title">忘记密码？</string>
+    <string name="order_firm">确认订单</string>
+    <string name="order_pay">选择支付方式</string>
+    <string name="order_selctAdd">收货地址</string>
+    <string name="pay_password">支付密码</string>
+    <string name="team_title">我的团队</string>
+    <string name="message_title">我的消息</string>
+    <string name="my_info">完善资料</string>
+    <string name="my_invite">邀请代理</string>
+    <string name="my_about">关于我们</string>
+    <string name="my_wallet">钱包</string>
+    <string name="my_release">发布内容</string>
+    <string name="release_title">请输入发布标题</string>
+    <string name="release_content">请输入发布内容</string>
+    <string name="release">发布</string>
+    <string name="knowledge">传播专区</string>
+    <string name="ziliao">资料专区</string>
+    <string name="my_collect">我的收藏</string>
+    <string name="buyshow_collect">买家秀收藏</string>
+    <string name="shopping">购物车</string>
+    <string name="zhu">会员</string>
+    <string name="te">特约</string>
+    <string name="men">门店</string>
+    <string name="shi">市代</string>
+    <string name="xian">县代</string>
+    <string name="sheng">省代</string>
+
+    <string name="car_success">加入购物车成功</string>
+    <string name="address_title">添加新收货地址</string>
+    <string name="order_one">待付款</string>
+    <string name="order_two">待审核</string>
+    <string name="order_three">待发货</string>
+    <string name="order_four">订单详情</string>
+    <string name="settting">设置</string>
+    <string name="pay_online">在线充值</string>
+    <string name="totixian">申请提现</string>
+    <string name="yaoqingts">加入旗帜奶粉APP</string>
+    <string name="filter_vcode">0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="pay_tixian">温馨提示：\n1.支付宝首笔提现：首笔提现可先输入一笔小额资金，以到账为准，确认账号无误后再进行较大金额提现。\n2.单笔最低提现金额10元，低于100元每笔收取手续费1元。</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_order_manage">OrderManageActivity</string>
+    <string name="title_activity_order_fragment">OrderFragment</string>
+    <string name="title_activity_firm_order">FirmOrderActivity</string>
+    <string name="title_activity_pay_order">PayOrderActivity</string>
+    <string name="title_activity_select_address">SelectAddressActivity</string>
+    <string name="title_activity_invite">InviteActivity</string>
+    <string name="title_activity_about">AboutActivity</string>
+    <string name="title_activity_wallet">WalletActivity</string>
+    <string name="title_activity_release">ReleaseActivity</string>
+    <string name="title_activity_spreadknowledge">SpreadknowledgeActivity</string>
+    <string name="title_activity_knowledge_detail">KnowledgeDetailActivity</string>
+    <string name="title_activity_my_collect">MyCollectActivity</string>
+    <string name="title_activity_shopping_cart">ShoppingCartActivity</string>
+    <string name="title_activity_my_invite">MyInviteActivity</string>
+    <string name="title_activity_team_performance">TeamPerformanceActivity</string>
+    <string name="title_activity_son_level">SonLevelActivity</string>
+    <string name="title_activity_one_person">OnePersonActivity</string>
+    <string name="title_activity_order_detail">OrderDetailActivity</string>
+    <string name="title_activity_setting">SettingActivity</string>
+</resources>

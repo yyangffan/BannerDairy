@@ -1,0 +1,81 @@
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+
+        <variable
+            name="goodsclLock"
+            type="com.superc.bannerdairy.model.GoodsColItem.DataBean"/>
+
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:background="@color/app_fg"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/goods_col_img"
+            android:layout_marginTop="8dp"
+            android:layout_width="100dp"
+            android:layout_height="70dp"
+            android:layout_margin="10dp"
+            android:padding="2dp"
+            android:background="@drawable/circle_h_bg"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/goods_col_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:layout_marginTop="0dp"
+            android:text="@{goodsclLock.goodsName}"
+            app:layout_constraintLeft_toRightOf="@+id/goods_col_img"
+            app:layout_constraintTop_toTopOf="@+id/goods_col_img"
+            app:layout_constraintRight_toLeftOf="@+id/goods_col_delete"
+            android:layout_marginRight="8dp"/>
+
+        <TextView
+            android:id="@+id/goods_col_other"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:layout_marginLeft="8dp"
+            android:text="@{goodsclLock.categoryName}"
+            app:layout_constraintBottom_toBottomOf="@+id/goods_col_img"
+            app:layout_constraintLeft_toRightOf="@+id/goods_col_img"/>
+
+        <ImageView
+            android:id="@+id/goods_col_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="8dp"
+            android:layout_marginTop="0dp"
+            android:src="@drawable/gb"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/goods_col_title"
+            />
+
+        <TextView
+            android:id="@+id/goods_col_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:layout_marginRight="8dp"
+            android:textColor="@color/red"
+            android:text="@{goodsclLock.goodsSalePrice}"
+            app:layout_constraintBottom_toBottomOf="@+id/goods_col_other"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

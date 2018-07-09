@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="shoppCartLock"
+            type="com.superc.bannerdairy.lock.ShoppCartLock"/>
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_above="@+id/bottom_rl"
+            android:background="@color/app_bg">
+
+            <include
+                android:id="@+id/title_bar"
+                layout="@layout/include_title_bar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/title_bar_hight"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <!--<ScrollView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent">-->
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+                    <CheckBox
+                        android:id="@+id/car_cb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/app_fg"
+                        android:visibility="gone"
+                        android:layout_marginLeft="5dp"/>
+                    <TextView
+                        android:id="@+id/car_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:visibility="gone"
+                        android:text="旗帜奶粉"
+                        android:padding="3dp"
+                        android:textSize="16sp"
+                        android:gravity="center_vertical"
+                        android:layout_toRightOf="@+id/car_cb"
+                        android:background="@color/app_fg"
+                        android:textColor="@color/black"
+                        />
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rv_car"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@+id/car_title"
+                     />
+                </RelativeLayout>
+
+            <!--</ScrollView>-->
+
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/bottom_rl"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white">
+            <CheckBox
+                android:id="@+id/ck_all"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:scaleX="0.8"
+                android:scaleY="0.8"
+                android:text="全选"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/black" />
+            <TextView
+                android:id="@+id/submit"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:background="@color/red"
+                android:gravity="center"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp"
+                android:text="去结算"
+                android:onClick="@{()->shoppCartLock.goPay()}"
+                android:textColor="@color/white"
+                android:textSize="15sp"/>
+
+
+            <TextView
+                android:id="@+id/momomo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/text_c"
+                android:text="￥"
+                android:textColor="@color/red"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:text="0.0"
+                android:layout_toRightOf="@+id/momomo"
+                android:textColor="@color/red"
+                android:textSize="16sp"/>
+            <!--android:text="@={shoppCartLock.allprice}"-->
+
+            <TextView
+                android:id="@+id/text_c"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/ck_all"
+                android:layout_marginLeft="10dp"
+                android:text="合计金额："
+                android:textColor="@color/black"
+                android:textSize="16sp"/>
+
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+</layout>

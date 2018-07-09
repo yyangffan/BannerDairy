@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="finshItem"
+            type="com.superc.bannerdairy.model.FinshItem" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="5dp"
+        android:background="@color/white"
+        >
+
+        <ImageView
+            android:id="@+id/item_fashion_head"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:scaleType="fitXY"
+            android:padding="3dp"
+            android:src="@drawable/head" />
+
+        <TextView
+            android:id="@+id/item_fashion_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/item_fashion_head"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:text="凡凡"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/item_fashion_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item_fashion_name"
+            android:layout_toRightOf="@+id/item_fashion_head"
+            android:gravity="center_vertical"
+            android:text="12分钟前"
+            android:layout_marginLeft="5dp"
+            android:textSize="14sp" />
+        <TextView
+            android:id="@+id/item_fashion_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item_fashion_name"
+            android:gravity="center_vertical"
+            android:text=" 取消收藏"
+            android:drawableLeft="@drawable/shanchu"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="5dp"
+            android:textSize="14sp" />
+        <com.youth.banner.Banner
+            android:id="@+id/item_fashion_banner"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_below="@+id/item_fashion_head"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/banner" />
+
+        <TextView
+            android:id="@+id/item_fashion_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item_fashion_banner"
+            android:text="1月24日上午，中共中央总书记、国家主席、中央军委主席习近平考察了君乐宝乳业在张家口投资兴建的婴幼儿奶粉企业..."
+            android:textSize="15sp" />
+        <TextView
+            android:id="@+id/item_fashion_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/item_fashion_content"
+            android:text="查看全文"
+            android:layout_marginRight="7dp"
+            android:textColor="@color/blue"
+            android:layout_marginTop="-18dp"
+            android:textSize="15sp" />
+
+
+    </RelativeLayout>
+
+</layout>

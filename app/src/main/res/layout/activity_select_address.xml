@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <data>
+
+        <variable
+            name="selectAddLock"
+            type="com.superc.bannerdairy.lock.SelectAddLock"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_bg"
+        android:orientation="vertical"
+        >
+
+        <include
+            android:id="@+id/title_bar"
+            layout="@layout/include_title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/title_bar_hight"
+            />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_address"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_weight="1"
+            />
+
+        <TextView
+            android:id="@+id/add_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/login_ok_bg"
+            android:gravity="center_horizontal"
+            android:onClick="@{()->selectAddLock.addadd()}"
+            android:padding="10dp"
+            android:text="+ 新增收货地址"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            />
+
+
+    </LinearLayout>
+
+</layout>

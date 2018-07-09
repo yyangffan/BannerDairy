@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="请输入6位支付密码"
+        android:textColor="#80000000"
+        android:textSize="18sp"/>
+
+    <com.superc.bannerdairy.widget.PasswordInputView
+        android:id="@+id/again_paypswd_pet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@color/white"
+        android:cursorVisible="false"
+        android:inputType="number"
+        android:maxLength="6"
+        android:padding="5dp"
+        app:pivBorderColor="#FFBABABA"
+        app:pivBorderRadius="2dp"
+        app:pivBorderWidth="1px"
+        app:pivPasswordColor="@color/black"
+        app:pivPasswordLength="6"
+        app:pivPasswordWidth="2dp"/>
+</LinearLayout>

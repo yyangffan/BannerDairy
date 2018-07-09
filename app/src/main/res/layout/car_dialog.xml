@@ -1,0 +1,39 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:orientation="vertical"
+    >
+
+    <ImageView
+        android:id="@+id/car_img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/gwccg"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/car_success"
+        android:textSize="17sp"
+        android:gravity="center"/>
+    <TextView
+        android:id="@+id/success"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="确定"
+        android:textSize="17sp"
+        android:gravity="center"
+        android:background="@drawable/login_ok_bg"
+        android:textColor="@color/white"
+        android:layout_margin="20dp"
+        android:padding="5dp"
+        android:layout_gravity="center"/>
+</LinearLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#fff</color>
+    <color name="apl">#00000000</color>
+    <color name="app_fg">#ffffff</color>
+    <color name="app_bg">#f4f4f4</color>
+    <color name="app_bgg">#f9f9f9</color>
+
+    <color name="main_color">#e70111</color>
+    <color name="red">#e70111</color>
+    <color name="text_red">#ff0e1f</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="invitColor">#B63433</color>
+
+    <color name="yellow">#F39F4E</color>
+    <color name="yellow_invite">#FDD747</color>
+
+    <color name="black">#000</color>
+    <color name="text_black">#2d2d2d</color>
+    <color name="home_top_text">#232323</color>
+    <color name="text_gray">#707070</color>
+    <color name="main_bottom_text">#888888</color>
+    <color name="login_text">#969696</color>
+    <color name="buy_bg">#5c262626</color>
+    <color name="parting_line">#c7c7c7</color>
+    <color name="login_bg">#f4f4f4</color>
+    <color name="gray_fefe">#fefefe</color>
+    <color name="gray_nnnn">#999999</color>
+
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="blue">#51acee</color>
+    <color name="trans_main_color">#802679BD</color>
+
+    <color name="color_f6">#f6f6f6</color>
+    <color name="color_grees">#5BBB6A</color>
+
+</resources>

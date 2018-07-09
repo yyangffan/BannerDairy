@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+
+        <variable
+            name="collectLock"
+            type="com.superc.bannerdairy.lock.CollectLock"/>
+    </data>
+
+    <!--<ListView-->
+    <!--android:id="@+id/list_order"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
+
+    <!--</ListView>-->
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_bg"
+        >
+
+        <include
+            android:id="@+id/title_bar"
+            layout="@layout/include_title_bar"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/title_bar_hight"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <com.androidkun.xtablayout.XTabLayout
+            android:id="@+id/tabs"
+            android:layout_width="395dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_bar"
+            app:tabGravity="fill"
+            app:tabMode="fixed"
+            app:xTabDisplayNum="2"
+            app:xTabIndicatorColor="@color/main_color"
+            app:xTabIndicatorHeight="2dp"
+            app:xTabIndicatorWidth="64dp"
+            app:xTabMode="scrollable"
+            app:xTabPadding="4dp"
+            app:xTabSelectedTextColor="@color/main_color"
+            app:xTabTextAppearance="@android:style/TextAppearance.Holo.Large"
+            app:xTabTextColor="@android:color/black"
+            app:xTabTextSize="15sp"
+            tools:layout_editor_absoluteX="8dp"/>
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="395dp"
+            android:layout_height="1dp"
+            android:background="@color/app_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tabs"
+            tools:layout_editor_absoluteX="8dp"/>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="0dp"
+            android:layout_height="548dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view"
+            tools:layout_editor_absoluteX="0dp"/>
+
+
+    </android.support.constraint.ConstraintLayout>
+    <!--<android.support.v7.widget.RecyclerView-->
+    <!--android:id="@+id/rv_collect"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--android:layout_marginRight="0dp"-->
+    <!--app:layout_constraintRight_toRightOf="parent"-->
+    <!--android:layout_marginLeft="0dp"-->
+    <!--app:layout_constraintLeft_toLeftOf="parent"-->
+    <!--app:layout_constraintHorizontal_bias="0.0"-->
+    <!--android:layout_marginTop="0dp"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/title_bar"-->
+    <!--app:layout_constraintVertical_bias="0.0"/>-->
+
+</layout>

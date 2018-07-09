@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="orderManageLock"
+            type="com.superc.bannerdairy.lock.OrderManageLock" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_bg"
+        android:orientation="vertical"
+        >
+
+        <include
+            android:id="@+id/title_bar"
+            layout="@layout/include_title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <android.support.design.widget.TabLayout
+            android:id="@+id/order_tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:tabSelectedTextColor="@color/text_red"
+            app:tabTextAppearance="@style/tabTitleText"
+            app:xTabPadding="4dp"
+            app:xTabIndicatorColor="@color/main_color"
+            app:xTabIndicatorHeight="2dp"
+            app:xTabIndicatorWidth="64dp"
+            app:xTabTextAppearance="@android:style/TextAppearance.Holo.Large"
+            app:xTabTextColor="@android:color/black"
+            app:tabTextColor="@color/text_gray"/>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/order_viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_bar"
+            app:layout_constraintVertical_bias="0.5"
+            android:layout_marginTop="0dp"/>
+
+    </LinearLayout>
+
+</layout>

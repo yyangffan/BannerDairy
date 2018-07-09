@@ -1,0 +1,180 @@
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+
+        <variable
+            name="stockPayLock"
+            type="com.superc.bannerdairy.lock.StockPayLock"/>
+
+
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_rl"
+        android:background="@color/app_bg"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/title_bar"
+            layout="@layout/include_title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/title_bar_hight"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@color/red"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp">
+
+                <TextView
+                    android:id="@+id/pay_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="bottom"
+                    android:text="0.00"
+                    android:textColor="@color/white"
+                    android:textSize="36sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/pay_price"
+                    android:layout_toLeftOf="@+id/pay_price"
+                    android:paddingBottom="5dp"
+                    android:text="￥"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"/>
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/payorder_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="支付金额"
+                android:textColor="@color/white"
+                android:textSize="18sp"/>
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/pay_money"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/pay_bg"
+            android:hint="请输入充值金额"
+            android:inputType="number"
+            android:padding="10dp"
+            android:textSize="14sp"
+            android:visibility="gone"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll_weixin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:padding="10dp"
+                    android:drawableLeft="@drawable/wchat"
+                    android:layout_weight="1"
+                    android:textColor="@color/text_black"
+                    android:text="         微信支付(推荐)"
+                    android:layout_height="wrap_content"/>
+                <ImageView
+                    android:id="@+id/pay_weixin"
+                    android:src="@drawable/xuanze"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_zfb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:padding="10dp"
+                    android:drawableLeft="@drawable/zfb"
+                    android:layout_weight="1"
+                    android:textColor="@color/text_black"
+                    android:text="         支付宝支付"
+                    android:layout_height="wrap_content"/>
+                <ImageView
+                    android:id="@+id/pay_zfb"
+                    android:src="@drawable/xuanze"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="10dp"
+                    android:visibility="invisible"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_yue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tv_yue"
+                    android:layout_width="0dp"
+                    android:padding="10dp"
+                    android:drawableLeft="@drawable/leftmoney"
+                    android:layout_weight="1"
+                    android:textColor="@color/text_black"
+                    android:text="         余额支付"
+                    android:layout_height="wrap_content"/>
+                <ImageView
+                    android:id="@+id/pay_ye"
+                    android:src="@drawable/xuanze"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="10dp"
+                    android:visibility="invisible"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/submit_pay"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/red_circle_horn"
+            android:gravity="center"
+            android:onClick="@{()->stockPayLock.topay()}"
+            android:text="确定"
+            android:textColor="@color/white"
+            android:textSize="18sp"/>
+    </LinearLayout>
+</layout>

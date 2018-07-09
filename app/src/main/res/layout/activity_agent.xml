@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_bg"
+        >
+
+        <include
+            android:id="@+id/title_bar"
+            layout="@layout/include_title_bar"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/title_bar_hight"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="0dp"
+            android:background="@color/main_color"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_bar"/>
+
+        <ImageView
+            android:id="@+id/imageView17"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/view"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/view"
+            app:layout_constraintVertical_bias="0.3"
+            app:srcCompat="@drawable/head"/>
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="就那谁"
+            android:textColor="@color/app_fg"
+            app:layout_constraintEnd_toEndOf="@+id/imageView17"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/imageView17"
+            app:layout_constraintTop_toBottomOf="@+id/imageView17"/>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.22"/>
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/app_fg"
+            android:padding="10dp"
+            android:text="夏季人数"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view"/>
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="14dp"
+            android:background="@color/parting_line"
+            app:layout_constraintBottom_toBottomOf="@id/tv1"
+            app:layout_constraintRight_toRightOf="@id/guideline4"
+            app:layout_constraintTop_toTopOf="@id/tv1"/>
+
+        <EditText
+            android:id="@+id/edt1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            android:text="- -"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv1"
+            app:layout_constraintEnd_toEndOf="@+id/tv1"
+            app:layout_constraintStart_toStartOf="@+id/guideline4"
+            app:layout_constraintTop_toTopOf="@+id/tv1"/>
+
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="1dp"
+            android:background="@color/app_fg"
+            android:padding="10dp"
+            android:text="    级别"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv1"/>
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="14dp"
+            android:background="@color/parting_line"
+            app:layout_constraintBottom_toBottomOf="@id/tv2"
+            app:layout_constraintRight_toRightOf="@id/guideline4"
+            app:layout_constraintTop_toTopOf="@id/tv2"/>
+
+        <EditText
+            android:id="@+id/edt2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            android:text="- -"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv2"
+            app:layout_constraintEnd_toEndOf="@+id/tv2"
+            app:layout_constraintStart_toStartOf="@+id/guideline4"
+            app:layout_constraintTop_toTopOf="@+id/tv2"/>
+
+        <TextView
+            android:id="@+id/tv3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/app_fg"
+            android:padding="10dp"
+            android:text="  邀请人"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv2"/>
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="14dp"
+            android:background="@color/parting_line"
+            app:layout_constraintBottom_toBottomOf="@id/tv3"
+            app:layout_constraintRight_toRightOf="@id/guideline4"
+            app:layout_constraintTop_toTopOf="@id/tv3"/>
+
+        <EditText
+            android:id="@+id/edt3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            android:text="- -"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv3"
+            app:layout_constraintEnd_toEndOf="@+id/tv3"
+            app:layout_constraintStart_toStartOf="@+id/guideline4"
+            app:layout_constraintTop_toTopOf="@+id/tv3"/>
+
+        <TextView
+            android:id="@+id/tv4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/app_fg"
+            android:padding="10dp"
+            android:text="    上级"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv3"/>
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="14dp"
+            android:background="@color/parting_line"
+            app:layout_constraintBottom_toBottomOf="@id/tv4"
+            app:layout_constraintRight_toRightOf="@id/guideline4"
+            app:layout_constraintTop_toTopOf="@id/tv4"/>
+
+        <EditText
+            android:id="@+id/edt4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            android:text="- -"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv4"
+            app:layout_constraintEnd_toEndOf="@+id/tv4"
+            app:layout_constraintStart_toStartOf="@+id/guideline4"
+            app:layout_constraintTop_toTopOf="@+id/tv4"/>
+
+        <TextView
+            android:id="@+id/tv5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="1dp"
+            android:background="@color/app_fg"
+            android:padding="10dp"
+            android:text="团队人数"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv4"/>
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="14dp"
+            android:background="@color/parting_line"
+            app:layout_constraintBottom_toBottomOf="@id/tv5"
+            app:layout_constraintRight_toRightOf="@id/guideline4"
+            app:layout_constraintTop_toTopOf="@id/tv5"/>
+
+        <EditText
+            android:id="@+id/edt5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            android:text="- -"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv5"
+            app:layout_constraintEnd_toEndOf="@+id/tv5"
+            app:layout_constraintStart_toStartOf="@+id/guideline4"
+            app:layout_constraintTop_toTopOf="@+id/tv5"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="16dp"
+            app:layout_constraintBottom_toBottomOf="@id/tv5"
+            app:layout_constraintRight_toRightOf="@+id/tv5"
+            app:layout_constraintTop_toTopOf="@id/tv5"
+            app:srcCompat="@drawable/xiayige"/>
+
+        <TextView
+            android:id="@+id/tv6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/app_fg"
+            android:padding="10dp"
+            android:text="上月差价收益"
+            android:visibility="gone"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv5"/>
+
+        <TextView
+            android:id="@+id/edt6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:background="@null"
+            android:gravity="right"
+            android:padding="10dp"
+            android:text="￥ 670.00"
+            android:textColor="@color/text_red"
+            android:textSize="14sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/tv6"
+            app:layout_constraintEnd_toEndOf="@+id/tv6"
+            app:layout_constraintStart_toStartOf="@+id/guideline4"
+            app:layout_constraintTop_toTopOf="@+id/tv6"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="16dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/tv6"
+            app:layout_constraintRight_toRightOf="@+id/tv6"
+            app:layout_constraintTop_toTopOf="@id/tv6"
+            app:srcCompat="@drawable/xiayige"/>
+
+        <TextView
+            android:id="@+id/tv_phone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/main_color"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="电话"
+            android:textColor="@color/app_fg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

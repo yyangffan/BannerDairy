@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/sign_bg"
+    android:paddingTop="10dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingBottom="15dp"
+   >
+
+    <ImageView
+        android:id="@+id/dialog_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/gb"/>
+
+    <TextView
+        android:id="@+id/dialog_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="10dp"
+        android:text="请输入支付密码"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/dialog_line"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/dialog_title"
+        android:background="@color/parting_line"/>
+
+    <TextView
+        android:id="@+id/dialog_tv_t"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dialog_line"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="5dp"
+        android:paddingTop="10dp"
+        android:text="企业付款"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/dialog_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dialog_tv_t"
+        android:layout_centerHorizontal="true"
+        android:text="260.00"
+        android:textColor="@color/black"
+        android:textSize="30sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/dialog_money"
+        android:layout_toLeftOf="@+id/dialog_money"
+        android:padding="2dp"
+        android:text="￥"
+        android:textColor="@color/black"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/dialog_lintT"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/dialog_money"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/parting_line"/>
+
+    <ImageView
+        android:id="@+id/dialog_imgv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dialog_lintT"
+        android:layout_margin="5dp"
+        android:src="@drawable/leftmoney"/>
+
+    <TextView
+        android:id="@+id/dialog_tv_yue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/dialog_imgv"
+        android:layout_toRightOf="@+id/dialog_imgv"
+        android:paddingLeft="10dp"
+        android:text="余额支付(余额：300.00）"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/dialog_lintTH"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/dialog_imgv"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/parting_line"/>
+
+    <com.superc.bannerdairy.service.BlackEditText
+        android:id="@+id/et_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:maxLength="6"
+        android:layout_below="@+id/dialog_lintTH"
+        android:inputType="numberPassword" />
+
+</RelativeLayout>

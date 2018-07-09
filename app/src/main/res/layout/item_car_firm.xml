@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <data>
+
+        <variable
+            name="carGoodsItem"
+            type="com.superc.bannerdairy.model.BaseCarGoodsItem.CarGoodsItem"/>
+    </data>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/app_bg"
+            android:orientation="horizontal"
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp"
+         >
+
+            <CheckBox
+                android:id="@+id/cb"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:visibility="gone"/>
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="100dp"
+                android:layout_height="70dp"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:background="@drawable/circle_h_bg"
+                android:padding="2dp"
+                android:src="@drawable/shangpin1"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="7.5"
+                        android:ellipsize="end"
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:text="@{carGoodsItem.goods_name}"
+                        android:textColor="@color/text_black"
+                        android:textSize="15sp"/>
+                    <!--下面这个需要显示单价故去掉了
+                        android:text="@={carGoodsItem.allprice}"
+                        -->
+                    <TextView
+                        android:id="@+id/iv_price"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2.5"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="10dp"
+                    android:orientation="horizontal"
+                  >
+                    <!--<TextView-->
+                        <!--android:id="@+id/less"-->
+                        <!--android:layout_width="30dp"-->
+                        <!--android:layout_height="30dp"-->
+                        <!--android:background="@color/app_bg"-->
+                        <!--android:gravity="center"-->
+                        <!--android:text="—"-->
+                        <!--android:textColor="@color/text_gray"-->
+                        <!--android:visibility="gone"/>-->
+
+                    <TextView
+                        android:id="@+id/num"
+                        android:layout_width="0dp"
+                        android:layout_weight="7.5"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:gravity="right|center_vertical"
+                        android:layout_marginRight="1dp"
+                        android:textSize="16sp"
+                        android:text="@={carGoodsItem.num}"
+                        android:textColor="@color/black"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:textSize="16sp"
+                        android:text="听"
+                        android:gravity="right"
+                        android:textColor="@color/black"/>
+
+                    <!--<TextView-->
+                        <!--android:id="@+id/more"-->
+                        <!--android:layout_width="35dp"-->
+                        <!--android:layout_height="30dp"-->
+                        <!--android:background="@color/app_bg"-->
+                        <!--android:gravity="center"-->
+                        <!--android:text="+"-->
+                        <!--android:textColor="@color/text_gray"-->
+                        <!--android:visibility="gone"/>-->
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/tv_stage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@{carGoodsItem.getSpec_name}"
+                    android:textSize="13sp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+</layout>

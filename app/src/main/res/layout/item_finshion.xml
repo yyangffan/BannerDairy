@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="finshItem"
+            type="com.superc.bannerdairy.model.FinshItem"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/white"
+        >
+
+        <ImageView
+            android:id="@+id/item_fashion_head"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:padding="3dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/head"/>
+
+        <ImageView
+            android:id="@+id/imgv_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_toLeftOf="@+id/tv_cancleCol"
+            android:src="@drawable/shanchu"/>
+
+        <TextView
+            android:id="@+id/tv_cancleCol"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_above="@+id/finshion_ll"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="7dp"
+            android:gravity="center_vertical"
+            android:text="取消收藏"/>
+
+        <TextView
+            android:id="@+id/item_fashion_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/item_fashion_head"
+            android:gravity="center_vertical"
+            android:text="@{finshItem.nickname}"
+            android:textColor="@color/black"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/item_fashion_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item_fashion_name"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/item_fashion_head"
+            android:gravity="center_vertical"
+            android:text="@{finshItem.created}"
+            android:textSize="14sp"/>
+
+        <com.bigkoo.convenientbanner.ConvenientBanner
+            android:id="@+id/item_fashion_banner"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_below="@+id/item_fashion_head"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/banner"
+            android:visibility="gone"/>
+
+        <com.zhy.view.flowlayout.TagFlowLayout
+            android:id="@+id/fashion_tags"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item_fashion_head"
+            android:layout_marginTop="5dp"
+            android:padding="5dp"
+            android:visibility="gone"/>
+
+        <LinearLayout
+            android:id="@+id/finshion_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item_fashion_head"
+            android:orientation="vertical">
+
+            <com.superc.bannerdairy.service.MyGridView
+                android:id="@+id/grid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:columnWidth="120dp"
+                android:horizontalSpacing="10dp"
+                android:numColumns="3"
+                android:stretchMode="columnWidth"
+                android:verticalSpacing="10dp"
+                android:visibility="visible"
+                />
+
+            <ImageView
+                android:id="@+id/finshion_image"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/shipin"
+                android:verticalSpacing="10dp"
+                android:visibility="gone"
+                />
+        </LinearLayout>
+        <!--android:text="@{finshItem.getArticle_content()}"-->
+        <com.superc.bannerdairy.service.ExpandTextView
+            android:id="@+id/item_fashion_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/finshion_ll"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:textSize="14sp"
+            android:maxLines="3"
+            />
+        <!--<TextView-->
+            <!--android:id="@+id/item_fashion_content"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_below="@+id/finshion_ll"-->
+            <!--android:paddingLeft="5dp"-->
+            <!--android:paddingRight="5dp"-->
+            <!--android:text="@{finshItem.getArticle_contentMine()}"-->
+            <!--android:textSize="15sp"/>-->
+
+        <!-- android:visibility="@{finshItem.isShow()?View.VISIBLE:View.GONE}"-->
+        <TextView
+            android:id="@+id/item_fashion_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/item_fashion_content"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="7dp"
+            android:text="查看全文"
+            android:textColor="@color/blue"
+            android:textSize="14sp"
+            android:visibility="gone"/>
+
+        <LinearLayout
+            android:id="@+id/ll_finshion"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/item_fashion_more"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/ll_zan"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/im_zan"
+                    android:layout_width="13dp"
+                    android:layout_height="13dp"
+                    android:layout_marginRight="7dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/zan"/>
+
+                <TextView
+                    android:id="@+id/item_fashion_zan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/grid"
+                    android:gravity="center_horizontal"
+                    android:text="点赞"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_zhuan"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/im_zai"
+                    android:layout_width="13dp"
+                    android:layout_height="13dp"
+                    android:layout_marginRight="7dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/zhuanfa"/>
+
+                <TextView
+                    android:id="@+id/item_fashion_zai"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/grid"
+                    android:gravity="center"
+                    android:text="转发"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_collect"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/im_collect"
+                    android:layout_width="13dp"
+                    android:layout_height="13dp"
+                    android:layout_marginRight="7dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/shoucang2"/>
+
+                <TextView
+                    android:id="@+id/item_fashion_collect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/grid"
+                    android:gravity="center"
+                    android:text="收藏"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:id="@+id/view_finshion"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_below="@+id/ll_finshion"
+            android:layout_marginTop="3dp"
+            android:background="@color/app_bg"/>
+
+
+    </RelativeLayout>
+
+</layout>

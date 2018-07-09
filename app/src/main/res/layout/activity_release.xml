@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+
+        <variable
+            name="releaseLock"
+            type="com.superc.bannerdairy.lock.ReleaseLock"/>
+    </data>
+
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_bg"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/title_bar"
+            layout="@layout/include_title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/title_bar_hight"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/white_circle_horn"
+            android:hint="@string/release_title"
+            android:paddingBottom="10dp"
+            android:paddingLeft="5dp"
+            android:paddingTop="10dp"
+            android:textColor="@color/text_black"
+            android:textSize="14sp"
+            android:visibility="gone"
+
+            />
+
+        <EditText
+            android:id="@+id/tv_personal_data"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/white_circle_horn"
+            android:gravity="start"
+            android:hint="@string/release_content"
+            android:paddingBottom="5dp"
+            android:paddingLeft="5dp"
+            android:paddingTop="10dp"
+            android:textColor="@color/text_black"
+            android:textSize="14sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/app_fg"
+                android:padding="12dp"
+                android:text="IMG"
+                android:textSize="16sp"
+                android:visibility="gone"/>
+
+            <GridView
+                android:id="@+id/gridview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:horizontalSpacing="5dp"
+                android:listSelector="#00000000"
+                android:numColumns="4"
+                android:padding="10dp"
+                android:verticalSpacing="10dp"
+                android:visibility="gone"
+                />
+            <!-- TODO: 2018/1/18 修改成不显示  暂时不用-->
+            <TextView
+                android:id="@+id/add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/app_fg"
+                android:padding="12dp"
+                android:text="   +   "
+                android:textSize="17sp"
+                android:visibility="gone"/>
+            <!--android:onClick="@{()->releaseLock.add()}"-->
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/release_tv_stone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="3dp"
+            android:paddingLeft="5dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:paddingTop="3dp"
+            android:text="请选择图片或视频"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:overScrollMode="never"/>
+
+        <TextView
+            android:id="@+id/send"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/red_circle_horn"
+            android:gravity="center"
+            android:padding="10dp"
+            android:paddingLeft="5dp"
+            android:paddingTop="10dp"
+            android:text="@string/release"
+            android:textColor="@color/white"
+            android:textSize="16sp"/>
+        <!--android:onClick="@{()->releaseLock.send()}"-->
+
+    </LinearLayout>
+
+</layout>
