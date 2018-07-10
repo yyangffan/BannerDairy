@@ -7,8 +7,11 @@ import android.content.Intent;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,7 +54,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -341,6 +343,13 @@ public class HomeLock extends BaseLock<FragmentHomeBinding> {
         View v = LayoutInflater.from(mContext).inflate(R.layout.redbao_dialog, null);
         TextView success = (TextView) v.findViewById(R.id.success);
         TextView coun = (TextView) v.findViewById(R.id.count);
+        ScrollView scrollView=v.findViewById(R.id.redbao_dialog_scroll);
+        ViewGroup.LayoutParams layoutParams = scrollView.getLayoutParams();
+        if(count.length()>150){
+            layoutParams.height=dp2px(mContext,280);
+        }
+        scrollView.setLayoutParams(layoutParams);
+
         coun.setText(count);
         builder.setView(v);
         final AlertDialog dialog = builder.create();
@@ -357,6 +366,13 @@ public class HomeLock extends BaseLock<FragmentHomeBinding> {
             }
         });
         return dialog;
+    }
+    /**
+     * dp转换成px
+     */
+    private int dp2px(Context context,float dpValue){
+        float scale=context.getResources().getDisplayMetrics().density;
+        return (int)(dpValue*scale+0.5f);
     }
 
     private void httpBanner() {

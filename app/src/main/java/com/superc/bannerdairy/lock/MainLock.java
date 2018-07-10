@@ -219,6 +219,7 @@ public class MainLock extends BaseLock<ActivityMainBinding> {
             public void onPageSelected(int position) {
                 LogUtil.i("PageScroll：", "onPageSelected" + ":" + position);
                 resetTextView();
+                mPage=position+"";
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     switch (position) {
                         case 0:
@@ -245,6 +246,7 @@ public class MainLock extends BaseLock<ActivityMainBinding> {
                             appBarLockk.barData.isRight = false;
 //                            appBarLockk.barData.imsLeft = mContext.getResources().getDrawable(R.drawable.xiaoxi);
                             mBinding.titleBar.setAppBarLock(appBarLockk);
+                            mLiaoTianFragment.toRefreshWeb();
                             break;
                         case 2:
                             hideInput(mContext,mBinding.mainShow);
@@ -296,6 +298,7 @@ public class MainLock extends BaseLock<ActivityMainBinding> {
                             appBarLockk.barData.isRight = false;
 //                            appBarLockk.barData.imsLeft = mContext.getResources().getDrawable(R.drawable.xiaoxi);
                             mBinding.titleBar.setAppBarLock(appBarLockk);
+                            mLiaoTianFragment.toRefreshWeb();
                             break;
                         case 2:
                             hideInput(mContext,mBinding.mainShow);
@@ -351,20 +354,124 @@ public class MainLock extends BaseLock<ActivityMainBinding> {
     }
 
     public void RefreshNum(){
-        if(mHomeFragment.isVisible()) {
-            hideInput(mContext, mBinding.mainHome);
-            mBinding.mainHome.setTextColor(mContext.getResources().getColor(R.color.main_color));
-            setImage(mBinding.mainHome, mContext.getResources().getDrawable(R.drawable.zhuye2));
-            AppBarLock appBarLock = new AppBarLock(mContext, R.string.main_titlet);
-            appBarLock.barData.isLeft = true;
-            appBarLock.setLeft(BIND);
-            appBarLock.setRight(YAOQING);
-            appBarLock.barData.isRight = true;
-            appBarLock.barData.titleRight = "邀请代理";
-            appBarLock.barData.imsLeft = mContext.getResources().getDrawable(R.drawable.xiaoxi);
-            getMsgNum(appBarLock);
-            mBinding.titleBar.setAppBarLock(appBarLock);
+        int nowPos = Integer.parseInt(mPage);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            switch (nowPos) {
+                case 0:
+                    hideInput(mContext,mBinding.mainHome);
+                    mBinding.mainHome.setTextColor(mContext.getColor(R.color.main_color));
+                    setImage(mBinding.mainHome, mContext.getDrawable(R.drawable.zhuye2));
+                    AppBarLock appBarLock = new AppBarLock(mContext, R.string.main_titlet);
+                    appBarLock.barData.isLeft = true;
+                    appBarLock.setLeft(BIND);
+                    appBarLock.setRight(YAOQING);
+                    appBarLock.barData.isRight = true;
+                    appBarLock.barData.titleRight = "邀请代理";
+                    appBarLock.barData.imsLeft = mContext.getResources().getDrawable(R.drawable.xiaoxi);
+                    getMsgNum(appBarLock);
+                    mBinding.titleBar.setAppBarLock(appBarLock);
+                    break;
+                case 1:
+                    mBinding.mainCustomer.setTextColor(mContext.getColor(R.color.main_color));
+                    setImage(mBinding.mainCustomer, mContext.getDrawable(R.drawable.customer2));
+                    mBinding.titleBar.setAppBarLock(new AppBarLock(mContext, R.string.mine_title));
+
+                    AppBarLock appBarLockk = new AppBarLock(mContext, R.string.main_kefu);
+                    appBarLockk.barData.isLeft = false;
+                    appBarLockk.barData.isRight = false;
+//                            appBarLockk.barData.imsLeft = mContext.getResources().getDrawable(R.drawable.xiaoxi);
+                    mBinding.titleBar.setAppBarLock(appBarLockk);
+                    mLiaoTianFragment.toRefreshWeb();
+                    break;
+                case 2:
+                    hideInput(mContext,mBinding.mainShow);
+                    mBinding.mainShow.setTextColor(mContext.getColor(R.color.main_color));
+                    setImage(mBinding.mainShow, mContext.getDrawable(R.drawable.show2));
+                    AppBarLock appBarLoc = new AppBarLock(mContext, R.string.fash_title);
+                    appBarLoc.barData.isLeft = false;/*去掉了左侧我的收藏--true  false来决定*/
+                    appBarLoc.barData.isRight = true;
+                    appBarLoc.setLeft(COLLECT);
+                    appBarLoc.setRight(RESULT);
+                    appBarLoc.barData.titleLeft = "我的收藏";
+                    appBarLoc.barData.titleRight = "发布";
+                    mBinding.titleBar.setAppBarLock(appBarLoc);
+                    if (mFashionSellerFragment != null) {
+                        mFashionSellerFragment.onResume();
+                    }
+                    break;
+                case 3:
+                    hideInput(mContext,mBinding.mainMine);
+                    mBinding.mainMine.setTextColor(mContext.getColor(R.color.main_color));
+                    setImage(mBinding.mainMine, mContext.getDrawable(R.drawable.mine2));
+                    mBinding.titleBar.setAppBarLock(new AppBarLock(mContext, R.string.mine_title));
+
+                    break;
+            }
+        } else {
+            switch (nowPos) {
+                case 0:
+                    hideInput(mContext,mBinding.mainHome);
+                    mBinding.mainHome.setTextColor(Color.RED);
+                    setImage(mBinding.mainHome, mContext.getResources().getDrawable(R.drawable.zhuye2));
+                    AppBarLock appBarLock = new AppBarLock(mContext, R.string.main_titlet);
+                    appBarLock.barData.isLeft = true;
+                    appBarLock.setLeft(BIND);
+                    appBarLock.setRight(YAOQING);
+
+                    appBarLock.barData.isRight = true;
+                    appBarLock.barData.titleRight = "邀请代理";
+                    appBarLock.barData.imsLeft = mContext.getResources().getDrawable(R.drawable.xiaoxi);
+                    mBinding.titleBar.setAppBarLock(appBarLock);
+
+                    break;
+                case 1:
+                    mBinding.mainCustomer.setTextColor(Color.RED);
+                    setImage(mBinding.mainCustomer, mContext.getResources().getDrawable(R.drawable.customer2));
+                    mBinding.titleBar.setAppBarLock(new AppBarLock(mContext, R.string.mine_title));
+                    AppBarLock appBarLockk = new AppBarLock(mContext, R.string.main_kefu);
+                    appBarLockk.barData.isLeft = false;
+                    appBarLockk.barData.isRight = false;
+//                            appBarLockk.barData.imsLeft = mContext.getResources().getDrawable(R.drawable.xiaoxi);
+                    mBinding.titleBar.setAppBarLock(appBarLockk);
+                    mLiaoTianFragment.toRefreshWeb();
+                    break;
+                case 2:
+                    hideInput(mContext,mBinding.mainShow);
+                    mBinding.mainShow.setTextColor(Color.RED);
+                    setImage(mBinding.mainShow, mContext.getResources().getDrawable(R.drawable.show2));
+                    AppBarLock appBarLoc = new AppBarLock(mContext, R.string.fash_title);
+                    appBarLoc.barData.isLeft = false;/*去掉了左侧我的收藏--true  false来决定*/
+                    appBarLoc.barData.isRight = true;
+                    appBarLoc.barData.titleLeft = "我的收藏";
+                    appBarLoc.barData.titleRight = "发布";
+                    appBarLoc.setLeft(COLLECT);
+                    appBarLoc.setRight(RESULT);
+
+                    mBinding.titleBar.setAppBarLock(appBarLoc);
+                    break;
+                case 3:
+                    hideInput(mContext,mBinding.mainMine);
+                    mBinding.mainMine.setTextColor(Color.RED);
+                    setImage(mBinding.mainMine, mContext.getResources().getDrawable(R.drawable.mine2));
+                    mBinding.titleBar.setAppBarLock(new AppBarLock(mContext, R.string.mine_title));
+
+                    break;
+            }
         }
+//        if(mHomeFragment.isVisible()) {
+//            hideInput(mContext, mBinding.mainHome);
+//            mBinding.mainHome.setTextColor(mContext.getResources().getColor(R.color.main_color));
+//            setImage(mBinding.mainHome, mContext.getResources().getDrawable(R.drawable.zhuye2));
+//            AppBarLock appBarLock = new AppBarLock(mContext, R.string.main_titlet);
+//            appBarLock.barData.isLeft = true;
+//            appBarLock.setLeft(BIND);
+//            appBarLock.setRight(YAOQING);
+//            appBarLock.barData.isRight = true;
+//            appBarLock.barData.titleRight = "邀请代理";
+//            appBarLock.barData.imsLeft = mContext.getResources().getDrawable(R.drawable.xiaoxi);
+//            getMsgNum(appBarLock);
+//            mBinding.titleBar.setAppBarLock(appBarLock);
+//        }
     }
 
     public void refresh() {

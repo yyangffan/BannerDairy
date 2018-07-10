@@ -1,11 +1,17 @@
 package com.superc.bannerdairy.ui.order;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.net.Uri;
+import android.os.Build;
 import android.view.ViewGroup;
+import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
-import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 
 import com.just.agentweb.AgentWeb;
@@ -18,8 +24,6 @@ import com.superc.bannerdairy.base.ConnectUrl;
 import com.superc.bannerdairy.databinding.ActivityContactServiceBinding;
 import com.superc.bannerdairy.lock.AppBarLock;
 
-import static com.superc.bannerdairy.R.id.view;
-
 /**
  * 我的订单--联系客服
  */
@@ -28,6 +32,11 @@ public class ContactServiceActivity extends BaseActivity {
     private ActivityContactServiceBinding mBinding;
     WebView mWebView;
     protected AgentWeb mAgentWeb;
+
+    private ValueCallback<Uri> mUploadMessage;
+    private ValueCallback<Uri[]> mUploadMessage5;
+    public static final int FILECHOOSER_RESULTCODE = 5173;
+    public static final int FILECHOOSER_RESULTCODE_FOR_ANDROID_5 = 5174;
 
     @Override
     protected void initBinding() {
@@ -38,6 +47,7 @@ public class ContactServiceActivity extends BaseActivity {
                 .setAgentWebParent((LinearLayout) mBinding.contactLl, -1, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT))//传入AgentWeb的父控件。
                 .useDefaultIndicator(-1, 3)//设置进度条颜色与高度，-1为默认值，高度为2，单位为dp。
                 .setOpenOtherPageWays(DefaultWebClient.OpenOtherPageWays.DISALLOW)//打开其他页面时，弹窗质询用户前往其他应用 AgentWeb 3.0.0 加入。
+                .setWebChromeClient(mWebChromeClient)
                 .interceptUnkownUrl() //拦截找不到相关页面的Url AgentWeb 3.0.0 加入。
                 .createAgentWeb()//创建AgentWeb。
                 .ready()//设置 WebSettings。
@@ -74,35 +84,72 @@ public class ContactServiceActivity extends BaseActivity {
         super.onDestroy();
     }
 
+    private WebChromeClient mWebChromeClient=new WebChromeClient(){
+        // For Android < 3.0
+        public void openFileChooser(ValueCallback<Uri> uploadMsg) {
+            this.openFileChooser(uploadMsg, "image/*");
+        }
+
+        // For Android >= 3.0
+        public void openFileChooser(ValueCallback<Uri> uploadMsg,
+                                    String acceptType) {
+            this.openFileChooser(uploadMsg, acceptType, null);
+        }
+
+        // For Android >= 4.1
+        public void openFileChooser(ValueCallback<Uri> uploadMsg, String acceptType, String capture) {
+            mUploadMessage = uploadMsg;
+            Intent i = new Intent(Intent.ACTION_GET_CONTENT);
+            i.addCategory(Intent.CATEGORY_OPENABLE);
+            i.setType("image/*");
+            startActivityForResult(Intent.createChooser(i, "File Browser"),
+                    FILECHOOSER_RESULTCODE);
+        }
+
+        // For Lollipop 5.0+ Devices
+        @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+        public boolean onShowFileChooser(WebView mWebView,
+                                         ValueCallback<Uri[]> filePathCallback,
+                                         WebChromeClient.FileChooserParams fileChooserParams) {
+            if (mUploadMessage5 != null) {
+                mUploadMessage5.onReceiveValue(null);
+                mUploadMessage5 = null;
+            }
+            mUploadMessage5 = filePathCallback;
+            Intent intent = fileChooserParams.createIntent();
+            try {
+                startActivityForResult(intent,
+                        FILECHOOSER_RESULTCODE_FOR_ANDROID_5);
+            } catch (ActivityNotFoundException e) {
+                mUploadMessage5 = null;
+                return false;
+            }
+            return true;
+        }
+    };
+
+    @SuppressLint("NewApi")
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode,
+                                    Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
+        if (requestCode == FILECHOOSER_RESULTCODE) {
+            if (null == mUploadMessage) {
+                return;
+            }
+            Uri result = intent == null || resultCode != Activity.RESULT_OK ? null : intent.getData();
+            mUploadMessage.onReceiveValue(result);
+            mUploadMessage = null;
+        } else if (requestCode == FILECHOOSER_RESULTCODE_FOR_ANDROID_5) {
+            if (null == mUploadMessage5) {
+                return;
+            }
+            mUploadMessage5.onReceiveValue(WebChromeClient.FileChooserParams
+                    .parseResult(resultCode, intent));
+            mUploadMessage5 = null;
+        }
+    }
+
     private void initWeb() {
-//       /* 设置支持Js,必须设置的,不然网页基本上不能看 */
-//        mWebView.getSettings().setJavaScriptEnabled(true);
-//       /* 设置缓存模式,我这里使用的默认,不做多讲解 */
-//        mWebView.getSettings().setCacheMode(WebSettings.LOAD_DEFAULT);
-//       /* 设置为true表示支持使用js打开新的窗口 */
-//        mWebView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
-//       /* 大部分网页需要自己保存一些数据,这个时候就的设置下面这个属性 */
-//        mWebView.getSettings().setDomStorageEnabled(true);
-//        /* 设置为使用webview推荐的窗口 */
-//        mWebView.getSettings().setUseWideViewPort(true);
-//        /* 设置网页自适应屏幕大小 ---这个属性应该是跟上面一个属性一起用 */
-//        mWebView.getSettings().setLoadWithOverviewMode(true);
-//        /* HTML5的地理位置服务,设置为true,启用地理定位 */
-//        mWebView.getSettings().setGeolocationEnabled(true);
-//        /* 设置是否允许webview使用缩放的功能,我这里设为false,不允许 */
-//        mWebView.getSettings().setBuiltInZoomControls(false);
-//        /* 提高网页渲染的优先级 */
-//        mWebView.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
-//        /* 设置显示水平滚动条,就是网页右边的滚动条.我这里设置的不显示 */
-//        mWebView.setHorizontalScrollBarEnabled(false);
-//        /* 指定垂直滚动条是否有叠加样式 */
-//        mWebView.setVerticalScrollbarOverlay(true);
-//        /* 设置滚动条的样式 */
-//        mWebView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
-//        /* 这个不用说了,重写WebChromeClient监听网页加载的进度,从而实现进度条 */
-//        mWebView.setWebChromeClient(new WebChromeClient());
-//        /* 同上,重写WebViewClient可以监听网页的跳转和资源加载等等... */
-//        mWebView.setWebViewClient(new WebViewClient());
-//        mWebView.loadUrl(ConnectUrl.LIAOTIAN + MyApplication.getUser().getUser_id());
     }
 }
